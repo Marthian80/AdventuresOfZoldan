@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6898841666726606337}
   - component: {fileID: 6898841666726606336}
   - component: {fileID: 7769104047310715402}
-  - component: {fileID: 3098622532487133742}
   - component: {fileID: -4757736970413029816}
   m_Layer: 0
   m_Name: Junkyard_MediumHill
@@ -116,37 +115,21 @@ PolygonCollider2D:
       - {x: 0.6998086, y: -0.101735115}
       - {x: 0.6114793, y: -0.07280922}
       - {x: 0.40121365, y: -0.041308165}
-      - {x: 0.19411802, y: 0.006586075}
+      - {x: 0.10371542, y: -0.032158136}
       - {x: -0.5407269, y: -0.024811506}
       - {x: -0.77349687, y: -0.019433975}
       - {x: -0.85199594, y: -0.05927992}
       - {x: -0.90896034, y: -0.17060113}
-      - {x: -0.984375, y: -0.328125}
-      - {x: -0.984375, y: -0.375}
-      - {x: -0.83019876, y: -0.32775497}
-      - {x: -0.7142329, y: -0.44616485}
+      - {x: -0.937021, y: -0.31951523}
+      - {x: -0.9413259, y: -0.375}
+      - {x: -0.8388088, y: -0.42246246}
+      - {x: -0.7228427, y: -0.51504326}
       - {x: -0.32116485, y: -0.49963093}
       - {x: 0.39609814, y: -0.6831722}
       - {x: 0.6530504, y: -0.58587813}
       - {x: 0.73388386, y: -0.53764915}
       - {x: 0.87450886, y: -0.50504446}
       - {x: 0.90577126, y: -0.2645092}
---- !u!70 &3098622532487133742
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6898841666726606338}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.06887829, y: 0.08151914}
-  m_Size: {x: 1.4317611, y: 1.0018157}
-  m_Direction: 1
 --- !u!114 &-4757736970413029816
 MonoBehaviour:
   m_ObjectHideFlags: 0
