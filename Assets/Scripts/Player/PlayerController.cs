@@ -7,6 +7,8 @@ public class PlayerController : Singleton<PlayerController>
     public bool FacingLeft { get { return facingLeft; }  }
     
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private Transform weaponCollider;
+    [SerializeField] private Transform slashAnimSpawnPoint;
 
     private PlayerControls playerControls;
     private Vector2 movement;
@@ -40,6 +42,16 @@ public class PlayerController : Singleton<PlayerController>
     private void FixedUpdate()
     {
         Move();        
+    }
+
+    public Transform GetWeaponCollider()
+    {
+        return weaponCollider;
+    }
+
+    public Transform GetSlashAnimationSpawnPoint()
+    {
+        return slashAnimSpawnPoint;
     }
 
     private void PlayerInput()
