@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6592832517221082416}
   - component: {fileID: 8999248462665314711}
   - component: {fileID: 6801001683560648422}
+  - component: {fileID: 8391775633710251240}
   m_Layer: 0
   m_Name: Junkyard_Tire
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7524673551465046706}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.03, y: -0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -101,3 +102,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.003943946, y: -0.035497848}
   m_Size: {x: 0.4132282, y: 0.2712376}
   m_Direction: 1
+--- !u!114 &8391775633710251240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7524673551465046706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835ef5bd88ff41545bc006b7974f2ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

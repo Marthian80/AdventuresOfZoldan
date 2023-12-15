@@ -1,22 +1,23 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserPistol : MonoBehaviour, IWeapon
+public class RailGun : MonoBehaviour, IWeapon
 {
     [SerializeField] private WeaponInfo weaponInfo;
-    [SerializeField] private GameObject laserBlastPrefab;
-    [SerializeField] private Transform laserBlastSpawnPoint;
-
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject railGunRayPrefab;
+    [SerializeField] private Transform railGunRaySpawnPoint;
     
+    private SpriteRenderer spriteRenderer;
     private Animator theAnimator;
-    private float spawnpointOffset = 0.1f;
+    private float spawnpointOffset = 0.15f;
+
     private readonly int FIRE_HASH = Animator.StringToHash("Fire");
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();        
-        theAnimator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        theAnimator= GetComponent<Animator>();
     }
 
     private void Update()
@@ -27,15 +28,21 @@ public class LaserPistol : MonoBehaviour, IWeapon
     public void Attack()
     {
         theAnimator.SetTrigger(FIRE_HASH);
-                     
-        GameObject newLaserBlast = Instantiate(laserBlastPrefab, 
-            new Vector3(laserBlastSpawnPoint.position.x + spawnpointOffset, laserBlastSpawnPoint.position.y + spawnpointOffset, laserBlastSpawnPoint.position.z), 
+
+        GameObject newLaserBlast = Instantiate(railGunRayPrefab,
+            new Vector3(railGunRaySpawnPoint.position.x + spawnpointOffset, railGunRaySpawnPoint.position.y, railGunRaySpawnPoint.position.z),
             ActiveWeapon.Instance.transform.rotation);
         newLaserBlast.GetComponent<Projectile>().UpdateWeaonInfo(weaponInfo);
     }
+
     public WeaponInfo GetWeaponInfo()
     {
         return weaponInfo;
+    }
+
+    public void SpawnRailGunProjectileAnimEvent()
+    {
+
     }
 
     private void AdjustGunFacingDirection()
@@ -45,11 +52,11 @@ public class LaserPistol : MonoBehaviour, IWeapon
 
         if (mousePos.x < playerPos.x)
         {
-            spriteRenderer.flipY = true;  
-            foreach(var spriteRenderChild in GetComponentsInChildren<SpriteRenderer>())
+            spriteRenderer.flipY = true;
+            foreach (var spriteRenderChild in GetComponentsInChildren<SpriteRenderer>())
             {
                 spriteRenderChild.flipY = true;
-            }            
+            }
         }
         else if (mousePos.x > playerPos.x)
         {
@@ -57,7 +64,7 @@ public class LaserPistol : MonoBehaviour, IWeapon
             foreach (var spriteRenderChild in GetComponentsInChildren<SpriteRenderer>())
             {
                 spriteRenderChild.flipY = false;
-            }            
+            }
         }
     }
 }

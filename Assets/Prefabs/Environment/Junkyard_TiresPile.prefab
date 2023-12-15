@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4545264580868788844}
   - component: {fileID: 1846408814449051260}
   - component: {fileID: 2943554200244185014}
+  - component: {fileID: 4111210015956495473}
   m_Layer: 0
   m_Name: Junkyard_TiresPile
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535321835147609362}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.14, y: 0.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -101,3 +102,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.026705742, y: -0.09347072}
   m_Size: {x: 0.4198823, y: 0.5192935}
   m_Direction: 0
+--- !u!114 &4111210015956495473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535321835147609362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835ef5bd88ff41545bc006b7974f2ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,13 +4,12 @@ using UnityEngine;
 public class Crowbar : MonoBehaviour, IWeapon
 {
     [SerializeField] private GameObject slashAnimPrefab;
-    [SerializeField] private Transform slashAnimSpawnPoint;
-    
-    [SerializeField] private float attackCoolDown = 1.25f;
-        
+    [SerializeField] private WeaponInfo weaponInfo;    
+
     private Animator animator;    
     private GameObject slashAnimation;
     private Transform weaponCollider;
+    private Transform slashAnimSpawnPoint;
 
     private void Awake()
     {        
@@ -34,15 +33,12 @@ public class Crowbar : MonoBehaviour, IWeapon
         weaponCollider.gameObject.SetActive(true);
 
         slashAnimation = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
-        slashAnimation.transform.parent = this.transform.parent;
-
-        StartCoroutine(AttackCDRoutine());                
+        slashAnimation.transform.parent = this.transform.parent;               
     }
 
-    private IEnumerator AttackCDRoutine()
+    public WeaponInfo GetWeaponInfo()
     {
-        yield return new WaitForSeconds(attackCoolDown);
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
+        return weaponInfo;
     }
 
     public void AttackFinishedAnimEvent()

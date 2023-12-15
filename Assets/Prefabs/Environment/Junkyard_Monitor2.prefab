@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3991824309487009412}
   - component: {fileID: 6120042715942190893}
   - component: {fileID: 2663811195072758255}
+  - component: {fileID: 9150552153083133563}
   m_Layer: 0
   m_Name: Junkyard_Monitor2
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6772205590843800479}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.23, y: 5.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -101,3 +102,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.06554457, y: -0.087392494}
   m_Size: {x: 0.60673726, y: 0.60673726}
   m_Direction: 1
+--- !u!114 &9150552153083133563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6772205590843800479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835ef5bd88ff41545bc006b7974f2ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

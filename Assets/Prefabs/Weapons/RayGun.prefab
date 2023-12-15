@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 1654136212961682124}
   - component: {fileID: 4886163570346798175}
   - component: {fileID: 1402818767710533018}
+  - component: {fileID: -2340004678088461346}
   m_Layer: 0
   m_Name: RayGun
   m_TagString: Untagged
@@ -131,6 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4f674ae67157f469208a162f313338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 11400000, guid: b4530d80aacb6c04eb77582f3b1c4847, type: 2}
+  railGunRayPrefab: {fileID: 5569414231823920991, guid: 9936a7a0c3dcfce499445d6375476e88, type: 3}
+  railGunRaySpawnPoint: {fileID: 6664452220750358020}
 --- !u!212 &1402818767710533018
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -183,6 +187,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &-2340004678088461346
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994108129636863955}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71090561d807f5c44b7941917be2ba92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8954819766313284783
 GameObject:
   m_ObjectHideFlags: 0

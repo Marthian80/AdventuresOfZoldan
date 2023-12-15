@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6898841666726606338
+--- !u!1 &5569414231823920991
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6898841666726606337}
-  - component: {fileID: 6898841666726606336}
-  - component: {fileID: 7769104047310715402}
-  - component: {fileID: -4757736970413029816}
-  - component: {fileID: 1048232424492794101}
+  - component: {fileID: 2614609898343832367}
+  - component: {fileID: 1195545016602762433}
+  - component: {fileID: 6385348180632199177}
+  - component: {fileID: 8256988585708180312}
+  - component: {fileID: 4556144584777848346}
+  - component: {fileID: 498700172668252988}
   m_Layer: 0
-  m_Name: Junkyard_MediumHill
+  m_Name: RailGun Ray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6898841666726606337
+--- !u!4 &2614609898343832367
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6898841666726606338}
+  m_GameObject: {fileID: 5569414231823920991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.42, y: 3.64, z: 0}
+  m_LocalPosition: {x: -11.3704, y: 8.2658, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6898841666726606336
+--- !u!212 &1195545016602762433
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6898841666726606338}
+  m_GameObject: {fileID: 5569414231823920991}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 76f6e0c92813d7d42a8a1941bb948e12, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,84 +77,76 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 70fe7bd225053cc4ba9a68b9492e50f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2cf8f245019679c4eb69f7f1d3c1fb91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_DrawMode: 1
+  m_Size: {x: 0.37920067, y: 0.45168018}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &7769104047310715402
-PolygonCollider2D:
+--- !u!70 &6385348180632199177
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6898841666726606338}
+  m_GameObject: {fileID: 5569414231823920991}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.8761158, y: -0.19068933}
-      - {x: 0.6998086, y: -0.101735115}
-      - {x: 0.6114793, y: -0.07280922}
-      - {x: 0.40121365, y: -0.041308165}
-      - {x: 0.10371542, y: -0.032158136}
-      - {x: -0.5407269, y: -0.024811506}
-      - {x: -0.77349687, y: -0.019433975}
-      - {x: -0.85199594, y: -0.05927992}
-      - {x: -0.90896034, y: -0.17060113}
-      - {x: -0.937021, y: -0.31951523}
-      - {x: -0.9413259, y: -0.375}
-      - {x: -0.8388088, y: -0.42246246}
-      - {x: -0.7228427, y: -0.51504326}
-      - {x: -0.32116485, y: -0.49963093}
-      - {x: 0.39609814, y: -0.6831722}
-      - {x: 0.6530504, y: -0.58587813}
-      - {x: 0.73388386, y: -0.53764915}
-      - {x: 0.87450886, y: -0.50504446}
-      - {x: 0.90577126, y: -0.2645092}
---- !u!114 &-4757736970413029816
+  m_Offset: {x: 0.0000000028800398, y: 0.024159528}
+  m_Size: {x: 0.4516803, y: 0.258401}
+  m_Direction: 1
+--- !u!50 &8256988585708180312
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569414231823920991}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!114 &4556144584777848346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6898841666726606338}
+  m_GameObject: {fileID: 5569414231823920991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25a0aba8d4120b34583b87df98f1a46f, type: 3}
+  m_Script: {fileID: 11500000, guid: 724fc5ea414c35d45a5e8983c55d64ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transparancyAmount: 0.6
-  transparancyFadeTime: 0.3
---- !u!114 &1048232424492794101
+  damageAmount: 1
+--- !u!114 &498700172668252988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6898841666726606338}
+  m_GameObject: {fileID: 5569414231823920991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 835ef5bd88ff41545bc006b7974f2ffc, type: 3}
+  m_Script: {fileID: 11500000, guid: 337a41e0d957cf6479d6a5c31d2f1b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
