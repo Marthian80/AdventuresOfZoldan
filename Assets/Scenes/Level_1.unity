@@ -60008,8 +60008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a0aba8d4120b34583b87df98f1a46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transparancyAmount: 0.5
-  transparancyFadeTime: 0.3
+  transparancyAmount: 0.3
+  transparancyFadeTime: 0.4
 --- !u!19719996 &2145108802
 TilemapCollider2D:
   m_ObjectHideFlags: 0
