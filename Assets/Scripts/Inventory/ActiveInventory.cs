@@ -52,17 +52,19 @@ public class ActiveInventory : MonoBehaviour
             Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
         }
 
-        if(!transform.GetChild(activeSlotIndexNum).GetComponent<InventorySlot>())
+        Transform childTransform = transform.GetChild(activeSlotIndexNum);
+        InventorySlot inventorySlot = childTransform.GetComponent<InventorySlot>();
+        WeaponInfo weaponInfo = inventorySlot.GetWeaponInfo();
+        GameObject weaponToSpwan = weaponInfo.weaponPrefab;
+
+        if (weaponInfo == null)
         {
             ActiveWeapon.Instance.NoWeaponSelected();
             return;
         }
-
-        GameObject weaponToSpwan = transform.GetChild(activeSlotIndexNum).GetComponent<InventorySlot>().GetWeaponInfo().weaponPrefab;
+        
         ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         GameObject newWeapon = Instantiate(weaponToSpwan, ActiveWeapon.Instance.transform.position, Quaternion.identity);
-
-
 
         newWeapon.transform.parent = ActiveWeapon.Instance.transform;
 

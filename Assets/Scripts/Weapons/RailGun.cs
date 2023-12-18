@@ -10,7 +10,7 @@ public class RailGun : MonoBehaviour, IWeapon
     
     private SpriteRenderer spriteRenderer;
     private Animator theAnimator;
-    private float spawnpointOffset = 0.15f;
+    private float spawnpointOffset = 0.12f;
 
     private readonly int FIRE_HASH = Animator.StringToHash("Fire");
 
@@ -27,12 +27,7 @@ public class RailGun : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        theAnimator.SetTrigger(FIRE_HASH);
-
-        GameObject newLaserBlast = Instantiate(railGunRayPrefab,
-            new Vector3(railGunRaySpawnPoint.position.x + spawnpointOffset, railGunRaySpawnPoint.position.y, railGunRaySpawnPoint.position.z),
-            ActiveWeapon.Instance.transform.rotation);
-        newLaserBlast.GetComponent<Projectile>().UpdateWeaonInfo(weaponInfo);
+        theAnimator.SetTrigger(FIRE_HASH);        
     }
 
     public WeaponInfo GetWeaponInfo()
@@ -42,7 +37,10 @@ public class RailGun : MonoBehaviour, IWeapon
 
     public void SpawnRailGunProjectileAnimEvent()
     {
-
+        GameObject newRay = Instantiate(railGunRayPrefab,
+            new Vector3(railGunRaySpawnPoint.position.x + spawnpointOffset, railGunRaySpawnPoint.position.y, railGunRaySpawnPoint.position.z),
+            ActiveWeapon.Instance.transform.rotation);
+        newRay.GetComponent<RailGunRay>().UpdateRayRange(weaponInfo.weaponRange);
     }
 
     private void AdjustGunFacingDirection()

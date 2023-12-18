@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8256988585708180312}
   - component: {fileID: 4556144584777848346}
   - component: {fileID: 498700172668252988}
+  - component: {fileID: 7589277220293380372}
   m_Layer: 0
   m_Name: RailGun Ray
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5569414231823920991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.3704, y: 8.2658, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2cf8f245019679c4eb69f7f1d3c1fb91, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d5f9d4a4cbd5d64492e4729b12735ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,7 +88,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!70 &6385348180632199177
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -101,8 +102,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000000028800398, y: 0.024159528}
-  m_Size: {x: 0.4516803, y: 0.258401}
+  m_Offset: {x: 0.19198728, y: 0.004858561}
+  m_Size: {x: 0.32369205, y: 0.17104456}
   m_Direction: 1
 --- !u!50 &8256988585708180312
 Rigidbody2D:
@@ -137,7 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724fc5ea414c35d45a5e8983c55d64ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 1
 --- !u!114 &498700172668252988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,3 +150,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337a41e0d957cf6479d6a5c31d2f1b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayGrowTime: 0.15
+--- !u!114 &7589277220293380372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569414231823920991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2292f245db13ff46bb14d80bf23cab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0.14

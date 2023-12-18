@@ -17,6 +17,9 @@ GameObject:
   - component: {fileID: -9058050020243853727}
   - component: {fileID: 665402837670381949}
   - component: {fileID: -5810083589118362236}
+  - component: {fileID: 5136994929921705855}
+  - component: {fileID: 4293262906699323358}
+  - component: {fileID: 7156465203083957742}
   m_Layer: 0
   m_Name: BlueSlime
   m_TagString: Untagged
@@ -81,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1289643088, guid: 5dbb8366d5d919f4986bc7c439126d1c, type: 3}
+  m_Sprite: {fileID: -364343305, guid: 83a666b2f7202a449bc716af17e7cc89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48eaba659477d2478e5983755957fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roamChangeDirection: 2
 --- !u!114 &7050571479311832350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 3
   deathVFX: {fileID: 6528175869911107008, guid: eeefc848d45d6ec4c80e425efbb280c9, type: 3}
+  knockBackThrust: 9
 --- !u!114 &665402837670381949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +200,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whiteFlashMat: {fileID: 2100000, guid: 77aa5df4808bcaf48abcc905c7c8141b, type: 2}
   flashTime: 0.15
+--- !u!95 &5136994929921705855
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050571479311832351}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5179e7e0056e6ee4295f5e1eafc86ae2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4293262906699323358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050571479311832351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812b912fa523fbb4e8a6763ba691df93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!210 &7156465203083957742
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050571479311832351}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &7050571480693751562
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7050571480693751562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.012562156, y: -0.4705472, z: 0}
+  m_LocalPosition: {x: -0.033, y: -0.466, z: 0}
   m_LocalScale: {x: 0.73674, y: 0.71218204, z: 0.98232}
   m_ConstrainProportionsScale: 0
   m_Children: []
