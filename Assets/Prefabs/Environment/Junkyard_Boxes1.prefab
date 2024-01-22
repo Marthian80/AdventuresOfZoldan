@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5499288277957139500}
   - component: {fileID: 8848457775476420636}
   - component: {fileID: -1459536715089895547}
+  - component: {fileID: 1504764781}
   m_Layer: 0
   m_Name: Junkyard_Boxes1
   m_TagString: Untagged
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c1d30471c99baa44689a990752a4c91b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -115,3 +116,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyVFX: {fileID: 898599467185523068, guid: df168e5dd09ae4b44a8e3b8a0918b245, type: 3}
+--- !u!114 &1504764781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395474811457964649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: c01bb3fe-d1a4-4061-8125-1468578c2fc3

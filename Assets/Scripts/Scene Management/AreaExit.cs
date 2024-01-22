@@ -12,9 +12,16 @@ public class AreaExit : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerController>())
         {
+            //Save current level
+            SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+            wrapper.Save();
+
             UIFade.Instance.FadeToBlack();
 
             StartCoroutine(LoadSceneRoutine());
+
+            //Load current level            
+            
         }
     }
 

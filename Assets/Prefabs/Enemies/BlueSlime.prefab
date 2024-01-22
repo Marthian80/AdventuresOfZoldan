@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 5136994929921705855}
   - component: {fileID: 4293262906699323358}
   - component: {fileID: 7156465203083957742}
+  - component: {fileID: 8228237077206398785}
   m_Layer: 0
   m_Name: BlueSlime
   m_TagString: Untagged
@@ -243,6 +244,19 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8228237077206398785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050571479311832351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 
 --- !u!1 &7050571480693751562
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,19 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour, ISaveable
 {
     [SerializeField] private int startingHealth = 3;
     [SerializeField] private GameObject deathVFX;
     [SerializeField] private float knockBackThrust = 9f;
 
+    public bool isDead;
+
     private int currentHealth;
     private Knockback knockback;
     private Flash flash;
-
+    
     private void Awake()
     {
         knockback = GetComponent<Knockback>();
@@ -30,6 +33,17 @@ public class EnemyHealth : MonoBehaviour
         StartCoroutine(CheckDetectDeathRoutine());
     }
 
+    public object CaptureState()
+    {
+        return currentHealth;
+    }
+
+    public void RestoreState(object state)
+    {
+        currentHealth = (int)state;
+        DetectDeath();
+    }
+
     private IEnumerator CheckDetectDeathRoutine()
     {
         yield return new WaitForSeconds(flash.GetFlashTime());
@@ -41,7 +55,11 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0) 
         {
             Instantiate(deathVFX, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            var sprites = GetComponentsInChildren<SpriteRenderer>();
+            foreach ( var sprite in sprites )
+            {
+                sprite.enabled = false;
+            }            
         }
-    }
+    }    
 }

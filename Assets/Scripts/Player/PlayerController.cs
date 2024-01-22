@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Singleton<PlayerController>
+public class PlayerController : Singleton<PlayerController>, ISaveable
 {
     public bool FacingLeft { get { return facingLeft; }  }
     
@@ -15,6 +15,7 @@ public class PlayerController : Singleton<PlayerController>
     private Rigidbody2D rb;
     private Animator playerAnimator;
     private SpriteRenderer spriteRenderer;
+    private Knockback knockback;
 
     private bool facingLeft = false;
 
@@ -26,6 +27,7 @@ public class PlayerController : Singleton<PlayerController>
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        knockback = GetComponent<Knockback>();
     }
 
     private void OnEnable()
@@ -54,6 +56,17 @@ public class PlayerController : Singleton<PlayerController>
         return slashAnimSpawnPoint;
     }
 
+    public object CaptureState()
+    {
+        return new SerializableVector3(transform.position);
+    }
+
+    public void RestoreState(object state)
+    {
+        SerializableVector3 position = (SerializableVector3)state;
+        transform.position = position.ToVector();
+    }
+
     private void PlayerInput()
     {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
@@ -64,6 +77,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Move()
     {
+        if (knockback.KnockedBackActive) { return; }
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
@@ -82,5 +96,5 @@ public class PlayerController : Singleton<PlayerController>
             spriteRenderer.flipX = false;
             facingLeft = false;
         }
-    }
+    }    
 }
