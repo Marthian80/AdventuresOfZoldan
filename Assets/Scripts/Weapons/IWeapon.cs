@@ -1,6 +1,10 @@
-interface IWeapon
+namespace AdventureOfZoldan.Weapons
 {
-    public void Attack();
+    interface IWeapon
+    {
+        public void Attack();
 
-    public WeaponInfo GetWeaponInfo();
+        public WeaponInfo GetWeaponInfo();
+    }
 }
+

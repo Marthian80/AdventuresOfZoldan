@@ -1,100 +1,105 @@
+using AdventureOfZoldan.Core.Saving;
+using AdventureOfZoldan.Enemies;
+using AdventureOfZoldan.Misc;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour, ISaveable
+namespace AdventureOfZoldan.Player
 {
-    [SerializeField] private int maxHealth = 3;
-    [SerializeField] private float knockbackThrustAmount = 10f;
-    [SerializeField] private float damageRecoveryTime = 1;
-
-    private Slider healthSlider;
-    private int currentHealth;
-    private bool canTakeDamage = true;
-
-    private Knockback knockback;
-    private Flash flash;
-
-    private void Awake()
+    public class PlayerHealth : MonoBehaviour, ISaveable
     {
-        knockback = GetComponent<Knockback>();
-        flash = GetComponent<Flash>();
-    }
+        [SerializeField] private int maxHealth = 3;
+        [SerializeField] private float knockbackThrustAmount = 10f;
+        [SerializeField] private float damageRecoveryTime = 1;
 
-    private void Start()
-    {
-        currentHealth = maxHealth;
+        private Slider healthSlider;
+        private int currentHealth;
+        private bool canTakeDamage = true;
 
-        UpdateHealthSlider();
-    }
+        private Knockback knockback;
+        private Flash flash;
 
-    public void HealPlayer(int healingAmount)
-    {
-        if (currentHealth< maxHealth) 
+        private void Awake()
         {
-            currentHealth += healingAmount;
+            knockback = GetComponent<Knockback>();
+            flash = GetComponent<Flash>();
+        }
+
+        private void Start()
+        {
+            currentHealth = maxHealth;
+
             UpdateHealthSlider();
-        }        
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
-
-        if (enemy && canTakeDamage)
-        {
-            knockback.GetKnockedBack(collision.gameObject.transform, knockbackThrustAmount);
-            StartCoroutine(flash.FlashRoutine());
-            TakeDamage(1);
-        }
-    }
-
-    private void TakeDamage(int damageAmount)
-    {
-        canTakeDamage = false;
-        currentHealth -= damageAmount;
-        Debug.Log(currentHealth.ToString());
-        StartCoroutine(DamageRecoveryRoutine());
-        UpdateHealthSlider();
-        CheckIfPlayerDeath();
-    }
-
-    private void CheckIfPlayerDeath()
-    {
-        if (currentHealth <= 0)
-        {
-            currentHealth = 0;
-            Debug.Log("player died");
-        }
-    }
-
-    private IEnumerator DamageRecoveryRoutine()
-    {
-        yield return new WaitForSeconds(damageRecoveryTime);
-        canTakeDamage = true;
-    }
-
-    private void UpdateHealthSlider()
-    {
-        if (healthSlider == null)
-        {
-            healthSlider = GameObject.Find("Health Slider").GetComponent<Slider>();
         }
 
-        healthSlider.maxValue = maxHealth;
-        healthSlider.value = currentHealth;
-    }
+        public void HealPlayer(int healingAmount)
+        {
+            if (currentHealth < maxHealth)
+            {
+                currentHealth += healingAmount;
+                UpdateHealthSlider();
+            }
+        }
 
-    public object CaptureState()
-    {
-        return currentHealth;
-    }
+        private void OnCollisionStay2D(Collision2D collision)
+        {
+            EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
 
-    public void RestoreState(object state)
-    {
-        currentHealth = (int)state;
-        CheckIfPlayerDeath();
-        UpdateHealthSlider();
+            if (enemy && canTakeDamage)
+            {
+                knockback.GetKnockedBack(collision.gameObject.transform, knockbackThrustAmount);
+                StartCoroutine(flash.FlashRoutine());
+                TakeDamage(1);
+            }
+        }
+
+        private void TakeDamage(int damageAmount)
+        {
+            canTakeDamage = false;
+            currentHealth -= damageAmount;
+            Debug.Log(currentHealth.ToString());
+            StartCoroutine(DamageRecoveryRoutine());
+            UpdateHealthSlider();
+            CheckIfPlayerDeath();
+        }
+
+        private void CheckIfPlayerDeath()
+        {
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                Debug.Log("player died");
+            }
+        }
+
+        private IEnumerator DamageRecoveryRoutine()
+        {
+            yield return new WaitForSeconds(damageRecoveryTime);
+            canTakeDamage = true;
+        }
+
+        private void UpdateHealthSlider()
+        {
+            if (healthSlider == null)
+            {
+                healthSlider = GameObject.Find("Health Slider").GetComponent<Slider>();
+            }
+
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
+        }
+
+        public object CaptureState()
+        {
+            return currentHealth;
+        }
+
+        public void RestoreState(object state)
+        {
+            currentHealth = (int)state;
+            CheckIfPlayerDeath();
+            UpdateHealthSlider();
+        }
     }
 }

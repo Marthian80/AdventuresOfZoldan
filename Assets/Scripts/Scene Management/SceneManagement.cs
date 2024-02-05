@@ -1,17 +1,19 @@
-using System.Collections.Generic;
-using UnityEngine;
+using AdventureOfZoldan.Core;
 
-public class SceneManagement : Singleton<SceneManagement>
+namespace AdventureOfZoldan.SceneManagement
 {
-    public string SceneTransitionName { get; private set; }
-
-    protected override void Awake()
+    public class SceneManagement : Singleton<SceneManagement>
     {
-        base.Awake();
-    }
+        public string SceneTransitionName { get; private set; }
 
-    public void SetTransitionName(string sceneTransitionName)
-    {
-        this.SceneTransitionName = sceneTransitionName;
+        protected override void Awake()
+        {
+            base.Awake();
+        }
+
+        public void SetTransitionName(string sceneTransitionName)
+        {
+            this.SceneTransitionName = sceneTransitionName;
+        }
     }
 }

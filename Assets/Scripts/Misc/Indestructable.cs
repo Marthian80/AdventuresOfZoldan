@@ -1,18 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Indestructable : MonoBehaviour
+namespace AdventureOfZoldan.Misc
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Indestructable : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -1,17 +1,20 @@
 using UnityEngine;
 
-public class RandomIdleAnimation : MonoBehaviour
+namespace AdventureOfZoldan.Misc
 {
-    private Animator myAnimator;
-
-    private void Awake()
+    public class RandomIdleAnimation : MonoBehaviour
     {
-        myAnimator = GetComponent<Animator>();
-    }
+        private Animator myAnimator;
 
-    private void Start()
-    {
-        AnimatorStateInfo stateInfo = myAnimator.GetCurrentAnimatorStateInfo(0);
-        myAnimator.Play(stateInfo.fullPathHash, -1, Random.Range(0f, 1f));
+        private void Awake()
+        {
+            myAnimator = GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+            AnimatorStateInfo stateInfo = myAnimator.GetCurrentAnimatorStateInfo(0);
+            myAnimator.Play(stateInfo.fullPathHash, -1, Random.Range(0f, 1f));
+        }
     }
 }

@@ -1,44 +1,45 @@
-    using System.Collections;
+using System.Collections;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+namespace AdventureOfZoldan.Enemies
 {
-    [SerializeField] private float roamChangeDirection = 2f;
-
-    private enum State
+    public class EnemyAI : MonoBehaviour
     {
-        Roaming
-    };       
+        [SerializeField] private float roamChangeDirection = 2f;
 
-
-    private State state;
-    private EnemyPathfinding enemyPathfinding;    
-    
-
-    private void Awake()
-    {
-        state = State.Roaming;
-        enemyPathfinding = GetComponent<EnemyPathfinding>();        
-    }
-
-    private void Start()
-    {
-        StartCoroutine(RoamingState());
-    }
-        
-    private IEnumerator RoamingState()
-    {
-        while (state == State.Roaming) 
+        private enum State
         {
-            enemyPathfinding.MoveTo(GetRoamingPosition());
-            yield return new WaitForSeconds(roamChangeDirection);
+            Roaming
+        };
+
+
+        private State state;
+        private EnemyPathfinding enemyPathfinding;
+
+
+        private void Awake()
+        {
+            state = State.Roaming;
+            enemyPathfinding = GetComponent<EnemyPathfinding>();
+        }
+
+        private void Start()
+        {
+            StartCoroutine(RoamingState());
+        }
+
+        private IEnumerator RoamingState()
+        {
+            while (state == State.Roaming)
+            {
+                enemyPathfinding.MoveTo(GetRoamingPosition());
+                yield return new WaitForSeconds(roamChangeDirection);
+            }
+        }
+
+        private Vector2 GetRoamingPosition()
+        {
+            return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         }
     }
-
-    private Vector2 GetRoamingPosition()
-    {
-        return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-    }
-
-    
 }

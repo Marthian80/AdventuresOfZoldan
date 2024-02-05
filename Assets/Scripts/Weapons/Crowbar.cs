@@ -1,95 +1,100 @@
+using AdventureOfZoldan.Inventory;
+using AdventureOfZoldan.Player;
 using System.Collections;
 using UnityEngine;
 
-public class Crowbar : MonoBehaviour, IWeapon
+namespace AdventureOfZoldan.Weapons
 {
-    [SerializeField] private GameObject slashAnimPrefab;
-    [SerializeField] private WeaponInfo weaponInfo;    
-
-    private Animator animator;    
-    private GameObject slashAnimation;
-    private Transform weaponCollider;
-    private Transform slashAnimSpawnPoint;
-
-    private void Awake()
-    {        
-        animator = GetComponent<Animator>();        
-    }
-
-    private void Start()
+    public class Crowbar : MonoBehaviour, IWeapon
     {
-        weaponCollider = PlayerController.Instance.GetWeaponCollider();
-        slashAnimSpawnPoint = PlayerController.Instance.GetSlashAnimationSpawnPoint();
-    }
+        [SerializeField] private GameObject slashAnimPrefab;
+        [SerializeField] private WeaponInfo weaponInfo;
 
-    private void Update()
-    {
-        MouseFollowWithOffset();     
-    }
+        private Animator animator;
+        private GameObject slashAnimation;
+        private Transform weaponCollider;
+        private Transform slashAnimSpawnPoint;
 
-    public void Attack()
-    {   
-        animator.SetTrigger("Attack");
-        weaponCollider.gameObject.SetActive(true);
-
-        slashAnimation = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
-        slashAnimation.transform.parent = this.transform.parent;               
-    }
-
-    public WeaponInfo GetWeaponInfo()
-    {
-        return weaponInfo;
-    }
-
-    public void AttackFinishedAnimEvent()
-    {
-        weaponCollider.gameObject.SetActive(false);
-    }
-
-    public void SwingUpFlipAnimEvent()
-    {
-        slashAnimation.gameObject.transform.rotation = Quaternion.Euler(-180, 0, 0);
-
-        if (PlayerController.Instance.FacingLeft)
+        private void Awake()
         {
-            slashAnimation.GetComponent<SpriteRenderer>().flipX = true;
+            animator = GetComponent<Animator>();
         }
-        else
+
+        private void Start()
         {
-            slashAnimation.GetComponent<SpriteRenderer>().flipX = false;
+            weaponCollider = PlayerController.Instance.GetWeaponCollider();
+            slashAnimSpawnPoint = PlayerController.Instance.GetSlashAnimationSpawnPoint();
         }
-    }
 
-    public void SwingDownFlipAnimEvent()
-    {
-        slashAnimation.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-        if (PlayerController.Instance.FacingLeft)
+        private void Update()
         {
-            slashAnimation.GetComponent<SpriteRenderer>().flipX = true;
+            MouseFollowWithOffset();
         }
-        else
+
+        public void Attack()
         {
-            slashAnimation.GetComponent<SpriteRenderer>().flipX = false;
+            animator.SetTrigger("Attack");
+            weaponCollider.gameObject.SetActive(true);
+
+            slashAnimation = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
+            slashAnimation.transform.parent = this.transform.parent;
         }
-    }
 
-    private void MouseFollowWithOffset()
-    {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 playerPos = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
-
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-
-        if (mousePos.x < playerPos.x)
+        public WeaponInfo GetWeaponInfo()
         {
-            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, angle);
-            weaponCollider.transform.rotation = Quaternion.Euler(0, -180, 0);
+            return weaponInfo;
         }
-        else if (mousePos.x > playerPos.x)
+
+        public void AttackFinishedAnimEvent()
         {
-            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
-            weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
+            weaponCollider.gameObject.SetActive(false);
+        }
+
+        public void SwingUpFlipAnimEvent()
+        {
+            slashAnimation.gameObject.transform.rotation = Quaternion.Euler(-180, 0, 0);
+
+            if (PlayerController.Instance.FacingLeft)
+            {
+                slashAnimation.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                slashAnimation.GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
+
+        public void SwingDownFlipAnimEvent()
+        {
+            slashAnimation.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            if (PlayerController.Instance.FacingLeft)
+            {
+                slashAnimation.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                slashAnimation.GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
+
+        private void MouseFollowWithOffset()
+        {
+            Vector3 mousePos = Input.mousePosition;
+            Vector3 playerPos = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
+
+            float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+
+            if (mousePos.x < playerPos.x)
+            {
+                ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, angle);
+                weaponCollider.transform.rotation = Quaternion.Euler(0, -180, 0);
+            }
+            else if (mousePos.x > playerPos.x)
+            {
+                ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
+                weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
     }
 }

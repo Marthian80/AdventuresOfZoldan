@@ -1,36 +1,44 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using AdventureOfZoldan.Core.Saving;
 using UnityEngine;
 
-public class SavingWrapper : MonoBehaviour
+namespace AdventureOfZoldan.SceneManagement
 {
-    private const string defaultSaveFile = "save";
-
-    //private IEnumerator Start()
-    //{
-    //    yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
-    //}
-
-    private void Update()
+    public class SavingWrapper : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        [SerializeField] KeyCode saveKey = KeyCode.Q;
+        [SerializeField] KeyCode loadKey = KeyCode.L;
+        [SerializeField] KeyCode deleteKey = KeyCode.Delete;
+        private const string defaultSaveFile = "save";               
+
+        private void Update()
         {
-            Load();
+            if (Input.GetKeyDown(saveKey))
+            {
+                Save();
+            }
+            if (Input.GetKeyDown(loadKey))
+            {
+                Load();
+            }
+            if (Input.GetKeyDown(deleteKey))
+            {
+                Delete();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.V)) 
+
+        public void Save()
         {
-            Save();
+            GetComponent<SavingSystem>().Save(defaultSaveFile);
         }
-    }
 
-    public void Save()
-    {
-        GetComponent<SavingSystem>().Save(defaultSaveFile);
-    }
+        public void Load()
+        {
+            GetComponent<SavingSystem>().Load(defaultSaveFile);
+        }
 
-    public void Load()
-    {
-        GetComponent<SavingSystem>().Load(defaultSaveFile);
+        public void Delete()
+        {
+            GetComponent<SavingSystem>().Delete(defaultSaveFile);
+        }
     }
 }

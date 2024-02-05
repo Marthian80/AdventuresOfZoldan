@@ -1,22 +1,28 @@
+using AdventureOfZoldan.Core;
+using AdventureOfZoldan.Player;
+using AdventureOfZoldan.UI;
 using UnityEngine;
 
-public class AreaEntrance : MonoBehaviour
+namespace AdventureOfZoldan.SceneManagement
 {
-    [SerializeField] private string sceneTransitionName;
-
-    private void Start()
+    public class AreaEntrance : MonoBehaviour
     {
-        if (sceneTransitionName == SceneManagement.Instance.SceneTransitionName) 
+        [SerializeField] private string sceneTransitionName;
+
+        private void Start()
         {
-            SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
-            wrapper.Load();
+            if (sceneTransitionName == SceneManagement.Instance.SceneTransitionName)
+            {
+                SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+                wrapper.Load();
 
-            PlayerController.Instance.transform.position = this.transform.position;
-            CameraController.Instance.SetPlayerCameraFollow();
+                PlayerController.Instance.transform.position = this.transform.position;
+                CameraController.Instance.SetPlayerCameraFollow();
 
-            wrapper.Save();
+                wrapper.Save();
 
-            UIFade.Instance.FadeToClear();
+                UIFade.Instance.FadeToClear();
+            }
         }
     }
 }

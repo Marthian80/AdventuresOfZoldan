@@ -1,34 +1,39 @@
+using AdventureOfZoldan.Player;
+using AdventureOfZoldan.UI;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AreaExit : MonoBehaviour
+namespace AdventureOfZoldan.SceneManagement
 {
-    [SerializeField] private string sceneTransitionName;
-    [SerializeField] private string sceneToLoad;
-    [SerializeField] private float sceneLoadTime = 1f;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class AreaExit : MonoBehaviour
     {
-        if (collision.gameObject.GetComponent<PlayerController>())
+        [SerializeField] private string sceneTransitionName;
+        [SerializeField] private string sceneToLoad;
+        [SerializeField] private float sceneLoadTime = 1f;
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            //Save current level
-            SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
-            wrapper.Save();
+            if (collision.gameObject.GetComponent<PlayerController>())
+            {
+                //Save current level
+                SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+                wrapper.Save();
 
-            UIFade.Instance.FadeToBlack();
+                UIFade.Instance.FadeToBlack();
 
-            StartCoroutine(LoadSceneRoutine());
+                StartCoroutine(LoadSceneRoutine());
 
-            //Load current level            
-            
+                //Load current level            
+
+            }
         }
-    }
 
-    private IEnumerator LoadSceneRoutine()
-    {
-        yield return new WaitForSeconds(sceneLoadTime);
-        SceneManager.LoadScene(sceneToLoad);
-        SceneManagement.Instance.SetTransitionName(sceneTransitionName);
+        private IEnumerator LoadSceneRoutine()
+        {
+            yield return new WaitForSeconds(sceneLoadTime);
+            SceneManager.LoadScene(sceneToLoad);
+            SceneManagement.Instance.SetTransitionName(sceneTransitionName);
+        }
     }
 }

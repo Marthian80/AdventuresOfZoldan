@@ -1,47 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
+using AdventureOfZoldan.Misc;
 using UnityEngine;
 
-public class EnemyPathfinding : MonoBehaviour
+namespace AdventureOfZoldan.Enemies
 {
-    [SerializeField] private float moveSpeed = 2f;
-    private Rigidbody2D rb;
-    private Vector2 moveDirection;
-    private Knockback knockback;
-    private SpriteRenderer spriteRenderer;
-
-    private void Awake()
-    {        
-        rb = GetComponent<Rigidbody2D>();
-        knockback= GetComponent<Knockback>();
-        spriteRenderer= GetComponent<SpriteRenderer>();
-    }
-
-    private void FixedUpdate()
+    public class EnemyPathfinding : MonoBehaviour
     {
-        if (knockback.KnockedBackActive)
-        {
-            return;
-        }
-        Move();
-    }
+        [SerializeField] private float moveSpeed = 2f;
+        private Rigidbody2D rb;
+        private Vector2 moveDirection;
+        private Knockback knockback;
+        private SpriteRenderer spriteRenderer;
 
-    private void Move()
-    {
-        rb.MovePosition(rb.position + moveDirection * (moveSpeed * Time.fixedDeltaTime));
-
-        if (moveDirection.x < 0)
+        private void Awake()
         {
-            spriteRenderer.flipX = false;
+            rb = GetComponent<Rigidbody2D>();
+            knockback = GetComponent<Knockback>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
-        else
-        {
-            spriteRenderer.flipX = true;
-        }
-    }
 
-    public void MoveTo(Vector2 pos)
-    {
-        moveDirection= pos;
+        private void FixedUpdate()
+        {
+            if (knockback.KnockedBackActive)
+            {
+                return;
+            }
+            Move();
+        }
+
+        private void Move()
+        {
+            rb.MovePosition(rb.position + moveDirection * (moveSpeed * Time.fixedDeltaTime));
+
+            if (moveDirection.x < 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                spriteRenderer.flipX = true;
+            }
+        }
+
+        public void MoveTo(Vector2 pos)
+        {
+            moveDirection = pos;
+        }
     }
 }

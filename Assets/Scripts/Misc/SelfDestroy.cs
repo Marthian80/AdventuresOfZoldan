@@ -1,24 +1,27 @@
 using UnityEngine;
 
-public class SelfDestroy : MonoBehaviour
+namespace AdventureOfZoldan.Misc
 {
-    private ParticleSystem ps;
-
-    private void Awake()
+    public class SelfDestroy : MonoBehaviour
     {
-        ps = GetComponent<ParticleSystem>();
-    }
+        private ParticleSystem ps;
 
-    private void Update()
-    {
-        if (ps && !ps.IsAlive()) 
+        private void Awake()
         {
-            DestroySelfAnimEvent();
+            ps = GetComponent<ParticleSystem>();
         }
-    }
 
-    public void DestroySelfAnimEvent()
-    {
-        Destroy(gameObject);
+        private void Update()
+        {
+            if (ps && !ps.IsAlive())
+            {
+                DestroySelfAnimEvent();
+            }
+        }
+
+        public void DestroySelfAnimEvent()
+        {
+            Destroy(gameObject);
+        }
     }
 }

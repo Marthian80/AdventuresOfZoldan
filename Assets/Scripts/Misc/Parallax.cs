@@ -1,25 +1,28 @@
 using UnityEngine;
 
-public class Parallax : MonoBehaviour
+namespace AdventureOfZoldan.Misc
 {
-    [SerializeField] private float parallaxOffset = -0.15f;
-
-    private Camera mainCamera;
-    private Vector2 startPosition;
-    private Vector2 travel => (Vector2)mainCamera.transform.position - startPosition;
-
-    private void Awake()
+    public class Parallax : MonoBehaviour
     {
-        mainCamera = Camera.main;
-    }
+        [SerializeField] private float parallaxOffset = -0.15f;
 
-    private void Start()
-    {
-        startPosition = transform.position;
-    }
+        private Camera mainCamera;
+        private Vector2 startPosition;
+        private Vector2 travel => (Vector2)mainCamera.transform.position - startPosition;
 
-    private void FixedUpdate()
-    {
-        transform.position = startPosition + travel * parallaxOffset;
+        private void Awake()
+        {
+            mainCamera = Camera.main;
+        }
+
+        private void Start()
+        {
+            startPosition = transform.position;
+        }
+
+        private void FixedUpdate()
+        {
+            transform.position = startPosition + travel * parallaxOffset;
+        }
     }
 }

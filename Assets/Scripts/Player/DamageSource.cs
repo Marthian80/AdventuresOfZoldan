@@ -1,18 +1,23 @@
+using AdventureOfZoldan.Enemies;
+using AdventureOfZoldan.Weapons;
 using UnityEngine;
 
-public class DamageSource : MonoBehaviour
+namespace AdventureOfZoldan.Player
 {
-    private int damageAmount;
-
-    private void Start()
+    public class DamageSource : MonoBehaviour
     {
-        MonoBehaviour currentActiveWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;
-        damageAmount = (currentActiveWeapon as IWeapon).GetWeaponInfo().weaponDamage;
-    }
+        private int damageAmount;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-        enemyHealth?.TakeDamage(damageAmount);        
+        private void Start()
+        {
+            MonoBehaviour currentActiveWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;
+            damageAmount = (currentActiveWeapon as IWeapon).GetWeaponInfo().weaponDamage;
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth?.TakeDamage(damageAmount);
+        }
     }
 }
