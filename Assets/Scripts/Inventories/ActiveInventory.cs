@@ -3,7 +3,7 @@ using AdventureOfZoldan.Weapons;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AdventureOfZoldan.Inventory
+namespace AdventureOfZoldan.Inventories
 {
     public class ActiveInventory : MonoBehaviour
     {

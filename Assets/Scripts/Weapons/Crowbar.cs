@@ -1,4 +1,4 @@
-using AdventureOfZoldan.Inventory;
+using AdventureOfZoldan.Inventories;
 using AdventureOfZoldan.Player;
 using System.Collections;
 using UnityEngine;

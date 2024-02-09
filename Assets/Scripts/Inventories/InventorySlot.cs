@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AdventureOfZoldan.Inventory
+namespace AdventureOfZoldan.Inventories
 {
     public class InventorySlot : MonoBehaviour
     {

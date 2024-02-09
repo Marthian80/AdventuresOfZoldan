@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using AdventureOfZoldan.Inventories;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace AdventureOfZoldan.Inventory
+namespace AdventureOfZoldan.UI.Inventories
 {
     /// <summary>
     /// To be put on the icon representing an inventory item. Allows the slot to
@@ -12,7 +13,7 @@ namespace AdventureOfZoldan.Inventory
     {
         // PUBLIC
 
-        public void SetItem(Sprite item)
+        public void SetItem(InventoryItem item)
         {
             var iconImage = GetComponent<Image>();
             if (item == null)
@@ -22,18 +23,8 @@ namespace AdventureOfZoldan.Inventory
             else
             {
                 iconImage.enabled = true;
-                iconImage.sprite = item;
+                iconImage.sprite = item.GetIcon();
             }
-        }
-
-        public Sprite GetItem()
-        {
-            var iconImage = GetComponent<Image>();
-            if (!iconImage.enabled)
-            {
-                return null;
-            }
-            return iconImage.sprite;
         }
     }
 }

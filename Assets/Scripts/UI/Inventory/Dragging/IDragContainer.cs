@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AdventureOfZoldan.Inventory.Dragging
+namespace AdventureOfZoldan.UI.Inventories.Dragging
 {
     /// <summary>
     /// Acts both as a source and destination for dragging. If we are dragging

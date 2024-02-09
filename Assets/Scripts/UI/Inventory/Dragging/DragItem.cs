@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace AdventureOfZoldan.Inventory.Dragging
+namespace AdventureOfZoldan.UI.Inventories.Dragging
 {
     /// <summary>
     /// Allows a UI element to be dragged and dropped from and to a container.
@@ -37,7 +37,8 @@ namespace AdventureOfZoldan.Inventory.Dragging
 
         // PRIVATE
         void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
-        {            
+        {
+            Debug.Log("Dragging started");
             startPosition = transform.position;
             originalParent = transform.parent;
             // Else won't get the drop event.
