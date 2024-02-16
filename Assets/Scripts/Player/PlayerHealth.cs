@@ -1,6 +1,8 @@
 using AdventureOfZoldan.Core.Saving;
 using AdventureOfZoldan.Enemies;
 using AdventureOfZoldan.Misc;
+using AdventureOfZoldan.SceneManagement;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +14,7 @@ namespace AdventureOfZoldan.Player
         [SerializeField] private int maxHealth = 3;
         [SerializeField] private float knockbackThrustAmount = 10f;
         [SerializeField] private float damageRecoveryTime = 1;
+        [SerializeField] private float deathDelay = 1.25f;
 
         private Slider healthSlider;
         private int currentHealth;
@@ -28,10 +31,10 @@ namespace AdventureOfZoldan.Player
 
         private void Start()
         {
-            currentHealth = maxHealth;
+            SceneManager.Instance.onGameRestarted += SetBackToStartingHealth;
 
-            UpdateHealthSlider();
-        }
+            SetBackToStartingHealth();
+        }                
 
         public void HealPlayer(int healingAmount)
         {
@@ -40,6 +43,12 @@ namespace AdventureOfZoldan.Player
                 currentHealth += healingAmount;
                 UpdateHealthSlider();
             }
+        }
+
+        private void SetBackToStartingHealth()
+        {
+            currentHealth = maxHealth;
+            UpdateHealthSlider();
         }
 
         private void OnCollisionStay2D(Collision2D collision)
@@ -58,7 +67,7 @@ namespace AdventureOfZoldan.Player
         {
             canTakeDamage = false;
             currentHealth -= damageAmount;
-            Debug.Log(currentHealth.ToString());
+            
             StartCoroutine(DamageRecoveryRoutine());
             UpdateHealthSlider();
             CheckIfPlayerDeath();
@@ -69,8 +78,17 @@ namespace AdventureOfZoldan.Player
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                Debug.Log("player died");
+                var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+                StartCoroutine(flash.FadeOutRoutine(spriteRenderer, deathDelay));
+                StartCoroutine(DeathLoadSceneRoutine());
             }
+        }
+
+        private IEnumerator DeathLoadSceneRoutine()
+        {
+            yield return new WaitForSeconds(deathDelay);
+            SceneManager.Instance.ShowGameOverScreen();
+            SceneManager.Instance.PauseGame();
         }
 
         private IEnumerator DamageRecoveryRoutine()

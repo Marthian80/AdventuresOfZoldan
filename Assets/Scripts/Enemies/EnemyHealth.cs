@@ -12,8 +12,6 @@ namespace AdventureOfZoldan.Enemies
         [SerializeField] private GameObject deathVFX;
         [SerializeField] private float knockBackThrust = 9f;
 
-        public bool isDead;
-
         private int currentHealth;
         private Knockback knockback;
         private Flash flash;
@@ -45,7 +43,15 @@ namespace AdventureOfZoldan.Enemies
         public void RestoreState(object state)
         {
             currentHealth = (int)state;
-            DetectDeath();
+
+            if (currentHealth <= 0)
+            {
+                DetectDeath();
+            }
+            else
+            {
+                RestoreToLife();
+            }            
         }
 
         private IEnumerator CheckDetectDeathRoutine()
@@ -64,7 +70,18 @@ namespace AdventureOfZoldan.Enemies
                 {
                     sprite.enabled = false;
                 }
+                GetComponent<CapsuleCollider2D>().enabled = false;
             }
+        }
+
+        private void RestoreToLife()
+        {
+            var sprites = GetComponentsInChildren<SpriteRenderer>();
+            foreach (var sprite in sprites)
+            {
+                sprite.enabled = true;
+            }
+            GetComponent<CapsuleCollider2D>().enabled = true;
         }
     }
 }

@@ -2,7 +2,6 @@ using AdventureOfZoldan.Player;
 using AdventureOfZoldan.UI;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace AdventureOfZoldan.SceneManagement
 {
@@ -17,23 +16,19 @@ namespace AdventureOfZoldan.SceneManagement
             if (collision.gameObject.GetComponent<PlayerController>())
             {
                 //Save current level
-                SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
-                wrapper.Save();
+                SavingWrapper.Instance.Save();
 
                 UIFade.Instance.FadeToBlack();
 
                 StartCoroutine(LoadSceneRoutine());
-
-                //Load current level            
-
             }
         }
 
         private IEnumerator LoadSceneRoutine()
         {
             yield return new WaitForSeconds(sceneLoadTime);
-            SceneManager.LoadScene(sceneToLoad);
-            SceneManagement.Instance.SetTransitionName(sceneTransitionName);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
+            SceneManager.Instance.SetTransitionName(sceneTransitionName);
         }
     }
 }

@@ -1,4 +1,5 @@
 using AdventureOfZoldan.Core;
+using AdventureOfZoldan.SceneManagement;
 using AdventureOfZoldan.Weapons;
 using System.Collections;
 using UnityEngine;
@@ -34,7 +35,10 @@ namespace AdventureOfZoldan.Player
 
         private void Update()
         {
-            Attack();
+            if (!SceneManager.Instance.GamePaused)
+            {
+                Attack();
+            }                
         }
 
         public void SelectNewWeapon(MonoBehaviour weapon)

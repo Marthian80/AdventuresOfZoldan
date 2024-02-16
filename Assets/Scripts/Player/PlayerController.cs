@@ -1,6 +1,8 @@
 using AdventureOfZoldan.Core;
 using AdventureOfZoldan.Core.Saving;
 using AdventureOfZoldan.Misc;
+using AdventureOfZoldan.SceneManagement;
+using System;
 using UnityEngine;
 
 namespace AdventureOfZoldan.Player
@@ -12,7 +14,7 @@ namespace AdventureOfZoldan.Player
         [SerializeField] private float moveSpeed = 1f;
         [SerializeField] private Transform weaponCollider;
         [SerializeField] private Transform slashAnimSpawnPoint;
-
+        
         private enum CursorType
         {
             None,
@@ -25,6 +27,8 @@ namespace AdventureOfZoldan.Player
         private Animator playerAnimator;
         private SpriteRenderer spriteRenderer;
         private Knockback knockback;
+        private Flash flash;
+        private Vector3 startPosition;
 
         private bool facingLeft = false;
 
@@ -37,6 +41,24 @@ namespace AdventureOfZoldan.Player
             playerAnimator = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             knockback = GetComponent<Knockback>();
+            flash = GetComponent<Flash>();
+            
+            startPosition = gameObject.transform.position;                     
+        }
+
+        private void Start()
+        {
+            SceneManager.Instance.onGameRestarted += RestartPlayer;
+        }
+
+        private void RestartPlayer()
+        {
+            playerControls.Disable();
+            gameObject.transform.position = startPosition;
+            playerControls.Enable();
+
+            var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            StartCoroutine(flash.FadeInRoutine(spriteRenderer, 0.1f));
         }
 
         private void OnEnable()
@@ -52,7 +74,10 @@ namespace AdventureOfZoldan.Player
 
         private void FixedUpdate()
         {
-            Move();
+            if (!SceneManager.Instance.GamePaused)
+            {
+                Move();
+            }                
         }
 
         public Transform GetWeaponCollider()
@@ -74,6 +99,7 @@ namespace AdventureOfZoldan.Player
         {
             SerializableVector3 position = (SerializableVector3)state;
             transform.position = position.ToVector();
+            Debug.Log("Restore called");
         }
 
         private void PlayerInput()

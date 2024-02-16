@@ -1,14 +1,20 @@
+using AdventureOfZoldan.Core;
 using AdventureOfZoldan.Core.Saving;
 using UnityEngine;
 
 namespace AdventureOfZoldan.SceneManagement
 {
-    public class SavingWrapper : MonoBehaviour
+    public class SavingWrapper : Singleton<SavingWrapper>
     {
         [SerializeField] KeyCode saveKey = KeyCode.Q;
         [SerializeField] KeyCode loadKey = KeyCode.L;
         [SerializeField] KeyCode deleteKey = KeyCode.Delete;
-        private const string defaultSaveFile = "save";               
+        private const string defaultSaveFile = "save";
+
+        protected override void Awake()
+        {
+            base.Awake();
+        }
 
         private void Update()
         {

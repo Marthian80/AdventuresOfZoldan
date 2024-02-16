@@ -1,4 +1,5 @@
 using AdventureOfZoldan.Misc;
+using AdventureOfZoldan.SceneManagement;
 using UnityEngine;
 
 namespace AdventureOfZoldan.Enemies
@@ -9,14 +10,14 @@ namespace AdventureOfZoldan.Enemies
         private Rigidbody2D rb;
         private Vector2 moveDirection;
         private Knockback knockback;
-        private SpriteRenderer spriteRenderer;
+        private SpriteRenderer spriteRenderer;        
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             knockback = GetComponent<Knockback>();
             spriteRenderer = GetComponent<SpriteRenderer>();
-        }
+        }       
 
         private void FixedUpdate()
         {
@@ -24,7 +25,10 @@ namespace AdventureOfZoldan.Enemies
             {
                 return;
             }
-            Move();
+            if (!SceneManager.Instance.GamePaused)
+            {
+                Move();
+            }            
         }
 
         private void Move()

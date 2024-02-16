@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Blue Potion
   m_EditorClassIdentifier: 
   itemID: 05f49443-c31c-4f50-ac23-48ecd10224b1
-  displayName: 
-  description: 
-  icon: {fileID: 0}
-  stackable: 0
+  displayName: Blue Potion
+  description: Unknown blue substance
+  icon: {fileID: 21300000, guid: acb2083f4c167c9418fde8ed8e8cbf89, type: 3}
+  stackable: 1

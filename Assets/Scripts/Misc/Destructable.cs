@@ -29,7 +29,7 @@ namespace AdventureOfZoldan.Misc
                 }
                 else
                 {
-                    DisableSpriteWhenDestroyed();
+                    DisableSpriteWhenDestroyed(true);
                 }
                 Instantiate(destroyVFX, transform.position, Quaternion.identity);
 
@@ -37,21 +37,21 @@ namespace AdventureOfZoldan.Misc
             }
         }
 
-        private void DisableSpriteWhenDestroyed()
+        private void DisableSpriteWhenDestroyed(bool destroyed)
         {
             var sprites = GetComponentsInChildren<SpriteRenderer>();
             foreach (var sprite in sprites)
             {
-                sprite.enabled = false;
+                sprite.enabled = !destroyed;
             }
-            GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<CapsuleCollider2D>().enabled = !destroyed;
         }
 
         private IEnumerator DestroyAnimationRoutine()
         {
             theAnimator.SetTrigger(EXPLODE_HASH);
             yield return new WaitForSeconds(0.75f);
-            DisableSpriteWhenDestroyed();
+            DisableSpriteWhenDestroyed(true);
         }
 
         public object CaptureState()
@@ -60,12 +60,8 @@ namespace AdventureOfZoldan.Misc
         }
 
         public void RestoreState(object state)
-        {
-            isDestroyed = (bool)state;
-            if (isDestroyed)
-            {
-                DisableSpriteWhenDestroyed();
-            }
+        {            
+            DisableSpriteWhenDestroyed((bool)state);                        
         }
     }
 }

@@ -11,15 +11,14 @@ namespace AdventureOfZoldan.SceneManagement
 
         private void Start()
         {
-            if (sceneTransitionName == SceneManagement.Instance.SceneTransitionName)
+            if (sceneTransitionName == SceneManager.Instance.SceneTransitionName)
             {
-                SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
-                wrapper.Load();
+                SavingWrapper.Instance.Load();
 
                 PlayerController.Instance.transform.position = this.transform.position;
                 CameraController.Instance.SetPlayerCameraFollow();
 
-                wrapper.Save();
+                SavingWrapper.Instance.Save();
 
                 UIFade.Instance.FadeToClear();
             }
