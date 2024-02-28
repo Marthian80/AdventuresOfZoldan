@@ -16,4 +16,5 @@ MonoBehaviour:
   displayName: Chemicals Tube
   description: Some chemicals for the ship's engine
   icon: {fileID: 21300000, guid: 4a527cc0251559445b4b165ac7605609, type: 3}
+  pickup: {fileID: 869898612997484683, guid: 8216e888b26642941983c230e3cc69d1, type: 3}
   stackable: 1

@@ -1,4 +1,5 @@
 using AdventureOfZoldan.Core.Saving;
+using AdventureOfZoldan.Inventories;
 using AdventureOfZoldan.Weapons;
 using System.Collections;
 using UnityEngine;
@@ -32,7 +33,7 @@ namespace AdventureOfZoldan.Misc
                     DisableSpriteWhenDestroyed(true);
                 }
                 Instantiate(destroyVFX, transform.position, Quaternion.identity);
-
+                GetComponent<LootSpawner>()?.DropLoot();
                 isDestroyed = true;
             }
         }

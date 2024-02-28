@@ -135,10 +135,7 @@ namespace AdventureOfZoldan.Inventories
 
         private void Awake()
         {
-            slots = new InventoryItem[inventorySize];
-            slots[0] = InventoryItem.GetFromID("05f49443-c31c-4f50-ac23-48ecd10224b1");
-            slots[1] = InventoryItem.GetFromID("a967ac06-72fd-4fcb-8d2f-0ea6cf7a27fa");
-            slots[2] = InventoryItem.GetFromID("075ead15-91b4-4d4d-8d08-2d6051e01371");
+            slots = new InventoryItem[inventorySize];            
         }
 
         /// <summary>

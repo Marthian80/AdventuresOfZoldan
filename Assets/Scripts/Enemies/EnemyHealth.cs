@@ -1,4 +1,5 @@
 using AdventureOfZoldan.Core.Saving;
+using AdventureOfZoldan.Inventories;
 using AdventureOfZoldan.Misc;
 using AdventureOfZoldan.Player;
 using System.Collections;
@@ -70,7 +71,9 @@ namespace AdventureOfZoldan.Enemies
                 {
                     sprite.enabled = false;
                 }
+                GetComponent<EnemyPathfinding>().StopMoving();
                 GetComponent<CapsuleCollider2D>().enabled = false;
+                GetComponent<LootSpawner>()?.DropLoot();
             }
         }
 

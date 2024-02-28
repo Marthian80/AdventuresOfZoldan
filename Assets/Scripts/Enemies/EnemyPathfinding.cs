@@ -10,7 +10,8 @@ namespace AdventureOfZoldan.Enemies
         private Rigidbody2D rb;
         private Vector2 moveDirection;
         private Knockback knockback;
-        private SpriteRenderer spriteRenderer;        
+        private SpriteRenderer spriteRenderer;
+        private bool stopMoving;
 
         private void Awake()
         {
@@ -25,10 +26,20 @@ namespace AdventureOfZoldan.Enemies
             {
                 return;
             }
-            if (!SceneManager.Instance.GamePaused)
+            if (!SceneManager.Instance.GamePaused && !stopMoving)
             {
                 Move();
             }            
+        }
+
+        public void StopMoving()
+        {
+            stopMoving = true;
+        }
+
+        public void MoveTo(Vector2 pos)
+        {
+            moveDirection = pos;
         }
 
         private void Move()
@@ -43,11 +54,6 @@ namespace AdventureOfZoldan.Enemies
             {
                 spriteRenderer.flipX = true;
             }
-        }
-
-        public void MoveTo(Vector2 pos)
-        {
-            moveDirection = pos;
         }
     }
 }
