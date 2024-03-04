@@ -1,4 +1,5 @@
 using AdventureOfZoldan.Player;
+using AdventureOfZoldan.Core;
 using UnityEngine;
 
 namespace AdventureOfZoldan.Weapons
@@ -34,7 +35,9 @@ namespace AdventureOfZoldan.Weapons
                 new Vector3(laserBlastSpawnPoint.position.x + spawnpointOffset, laserBlastSpawnPoint.position.y + spawnpointOffset, laserBlastSpawnPoint.position.z),
                 ActiveWeapon.Instance.transform.rotation);
             newLaserBlast.GetComponent<Projectile>().UpdateWeaonInfo(weaponInfo);
+            AudioPlayer.Instance.PlayLaserPistolClip();
         }
+
         public WeaponInfo GetWeaponInfo()
         {
             return weaponInfo;

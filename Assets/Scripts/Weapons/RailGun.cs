@@ -1,3 +1,4 @@
+using AdventureOfZoldan.Core;
 using AdventureOfZoldan.Player;
 using UnityEngine;
 
@@ -42,6 +43,7 @@ namespace AdventureOfZoldan.Weapons
                 new Vector3(railGunRaySpawnPoint.position.x + spawnpointOffset, railGunRaySpawnPoint.position.y, railGunRaySpawnPoint.position.z),
                 ActiveWeapon.Instance.transform.rotation);
             newRay.GetComponent<RailGunRay>().UpdateRayRange(weaponInfo.weaponRange);
+            AudioPlayer.Instance.PlayRailgunClip();
         }
 
         private void AdjustGunFacingDirection()

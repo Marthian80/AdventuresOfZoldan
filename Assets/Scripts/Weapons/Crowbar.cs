@@ -1,6 +1,5 @@
-using AdventureOfZoldan.Inventories;
+using AdventureOfZoldan.Core;
 using AdventureOfZoldan.Player;
-using System.Collections;
 using UnityEngine;
 
 namespace AdventureOfZoldan.Weapons
@@ -38,6 +37,7 @@ namespace AdventureOfZoldan.Weapons
 
             slashAnimation = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
             slashAnimation.transform.parent = this.transform.parent;
+            AudioPlayer.Instance.PlayCrowbarClip();
         }
 
         public WeaponInfo GetWeaponInfo()
