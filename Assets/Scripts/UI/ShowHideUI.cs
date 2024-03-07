@@ -1,4 +1,6 @@
+using AdventureOfZoldan.SceneManagement;
 using UnityEngine;
+
 
 namespace AdventureOfZoldan.UI
 {
@@ -16,6 +18,15 @@ namespace AdventureOfZoldan.UI
         {
             if (Input.GetKeyDown(toggleKey))
             {
+                if (!uiContainer.activeSelf)
+                {
+                    SceneManager.Instance.InventoryScreenActivated();
+                }
+                else
+                {
+                    SceneManager.Instance.InventoryScreenClosed();
+                }
+
                 uiContainer.SetActive(!uiContainer.activeSelf);
             }
         }

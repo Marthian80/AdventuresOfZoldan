@@ -58,7 +58,8 @@ namespace AdventureOfZoldan.Player
             playerControls.Enable();
 
             var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-            StartCoroutine(flash.FadeInRoutine(spriteRenderer, 0.1f));
+            var color = spriteRenderer.color;
+            spriteRenderer.color = new Color(color.r, color.g, color.b, 1);
         }
 
         private void OnEnable()

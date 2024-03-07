@@ -1,4 +1,5 @@
-﻿using AdventureOfZoldan.Inventories;
+﻿using AdventureOfZoldan.Core;
+using AdventureOfZoldan.Inventories;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ namespace AdventureOfZoldan.UI.Inventories
     /// To be placed on the root of the inventory UI. Handles spawning all the
     /// inventory slot prefabs.
     /// </summary>
-    public class InventoryUI : MonoBehaviour
+    public class InventoryUI : Singleton<InventoryUI>
     {
         // CONFIG DATA
         [SerializeField] InventorySlotUI InventoryItemPrefab = null;
@@ -18,8 +19,10 @@ namespace AdventureOfZoldan.UI.Inventories
 
         // LIFECYCLE METHODS
 
-        private void Awake() 
+        protected override void Awake() 
         {
+            base.Awake();
+
             playerInventory = Inventory.GetPlayerInventory();
             playerInventory.inventoryUpdated += Redraw;
         }
@@ -27,6 +30,11 @@ namespace AdventureOfZoldan.UI.Inventories
         private void Start()
         {
             Redraw();
+        }
+
+        private void OnDestroy()
+        {
+            playerInventory.inventoryUpdated -= Redraw;
         }
 
         // PRIVATE

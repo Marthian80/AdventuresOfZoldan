@@ -35,7 +35,7 @@ namespace AdventureOfZoldan.Player
 
         private void Update()
         {
-            if (!SceneManager.Instance.GamePaused)
+            if (!SceneManager.Instance.GamePaused && !SceneManager.Instance.InventoryScreenActive)
             {
                 Attack();
             }                

@@ -16,6 +16,8 @@ namespace AdventureOfZoldan.Player
         [SerializeField] private float damageRecoveryTime = 1;
         [SerializeField] private float deathDelay = 1.25f;
 
+        public event Action<float> onPlayerDead;
+
         private Slider healthSlider;
         private int currentHealth;
         private bool canTakeDamage = true;
@@ -32,7 +34,6 @@ namespace AdventureOfZoldan.Player
         private void Start()
         {
             SceneManager.Instance.onGameRestarted += SetBackToStartingHealth;
-
             SetBackToStartingHealth();
         }                
 
@@ -77,6 +78,11 @@ namespace AdventureOfZoldan.Player
         {
             if (currentHealth <= 0)
             {
+                if (onPlayerDead != null)
+                {
+                    onPlayerDead(deathDelay);
+                }
+
                 currentHealth = 0;
                 var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
                 StartCoroutine(flash.FadeOutRoutine(spriteRenderer, deathDelay));

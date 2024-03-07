@@ -15,6 +15,7 @@ namespace AdventureOfZoldan.SceneManagement
 
         public string SceneTransitionName { get; private set; }
         public bool GamePaused { get; private set; }
+        public bool InventoryScreenActive { get; private set; }
 
         protected override void Awake()
         {
@@ -63,6 +64,16 @@ namespace AdventureOfZoldan.SceneManagement
         public void ResumeGame()
         {
             GamePaused = false;
+        }
+
+        public void InventoryScreenActivated()
+        {
+            InventoryScreenActive = true;
+        }
+
+        public void InventoryScreenClosed()
+        {
+            InventoryScreenActive = false;
         }
 
         public void QuitGame()
