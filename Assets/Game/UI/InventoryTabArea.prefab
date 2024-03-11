@@ -2207,8 +2207,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventorySlot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4070522637158993643, guid: 6a9f78eab29aa554893b3f0daffe7be2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6a9f78eab29aa554893b3f0daffe7be2, type: 3}
+--- !u!1 &1319526655199445370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8237722008299927614, guid: 6a9f78eab29aa554893b3f0daffe7be2, type: 3}
+  m_PrefabInstance: {fileID: 6925869944826558788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &208885836620051312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319526655199445370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8decd025267c4fb46a4a49358f06f3dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 8860567382193917381, guid: 63c51983548a962449f126a7861ed02b, type: 3}
 --- !u!224 &4128894505834310691 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6436037115835848039, guid: 6a9f78eab29aa554893b3f0daffe7be2, type: 3}

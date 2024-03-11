@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using AdventureOfZoldan.Core.Saving;
+using AdventureOfZoldan.SceneManagement;
 
 namespace AdventureOfZoldan.Inventories
 {
@@ -136,6 +137,24 @@ namespace AdventureOfZoldan.Inventories
         private void Awake()
         {
             slots = new InventoryItem[inventorySize];            
+        }
+
+        private void Start()
+        {
+            SceneManager.Instance.onGameRestarted += SetToStartingValues;
+        }
+
+        /// <summary>
+        /// After restarting the game, the inventory is restored to starting values
+        /// For now, this means an empty inventory
+        /// </summary>
+        private void SetToStartingValues()
+        {
+            slots = new InventoryItem[inventorySize];
+            if (inventoryUpdated != null)
+            {
+                inventoryUpdated();
+            }
         }
 
         /// <summary>

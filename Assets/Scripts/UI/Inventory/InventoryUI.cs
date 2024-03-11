@@ -9,7 +9,7 @@ namespace AdventureOfZoldan.UI.Inventories
     /// To be placed on the root of the inventory UI. Handles spawning all the
     /// inventory slot prefabs.
     /// </summary>
-    public class InventoryUI : Singleton<InventoryUI>
+    public class InventoryUI : MonoBehaviour
     {
         // CONFIG DATA
         [SerializeField] InventorySlotUI InventoryItemPrefab = null;
@@ -19,10 +19,8 @@ namespace AdventureOfZoldan.UI.Inventories
 
         // LIFECYCLE METHODS
 
-        protected override void Awake() 
+        private void Awake() 
         {
-            base.Awake();
-
             playerInventory = Inventory.GetPlayerInventory();
             playerInventory.inventoryUpdated += Redraw;
         }
