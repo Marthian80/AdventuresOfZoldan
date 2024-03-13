@@ -6647,6 +6647,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2c068a760fb739a41ad3e82f642ab9f6, type: 2}
   - {fileID: 11400000, guid: e320c07b5cc9f174e94a2d7df64e747d, type: 2}
   - {fileID: 11400000, guid: 00ce34a9be4445e40a738bfa2372b0fd, type: 2}
+  maxNumberStackableItems: 10
 --- !u!1 &434223261
 GameObject:
   m_ObjectHideFlags: 0
@@ -36314,7 +36315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.39070225, y: 5.805159, z: -9.826152}
+  m_LocalPosition: {x: -0.38902378, y: 5.805159, z: -9.826152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43180,6 +43181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomLootItems:
   - {fileID: 11400000, guid: 00ce34a9be4445e40a738bfa2372b0fd, type: 2}
+  maxNumberStackableItems: 10
 --- !u!1 &1055106367
 GameObject:
   m_ObjectHideFlags: 0
@@ -43932,6 +43934,10 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 11400000, guid: 2c068a760fb739a41ad3e82f642ab9f6, type: 2}
+    - target: {fileID: 7389500081163150297, guid: 468a8f8d170b9c24881e32084ce75f1c, type: 3}
+      propertyPath: number
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 468a8f8d170b9c24881e32084ce75f1c, type: 3}
 --- !u!4 &1189747726 stripped
@@ -44572,6 +44578,7 @@ MonoBehaviour:
   randomLootItems:
   - {fileID: 11400000, guid: 2c068a760fb739a41ad3e82f642ab9f6, type: 2}
   - {fileID: 11400000, guid: 00ce34a9be4445e40a738bfa2372b0fd, type: 2}
+  maxNumberStackableItems: 10
 --- !u!1 &1427876938
 GameObject:
   m_ObjectHideFlags: 0
@@ -45228,6 +45235,7 @@ MonoBehaviour:
   randomLootItems:
   - {fileID: 11400000, guid: 2c068a760fb739a41ad3e82f642ab9f6, type: 2}
   - {fileID: 11400000, guid: e320c07b5cc9f174e94a2d7df64e747d, type: 2}
+  maxNumberStackableItems: 5
 --- !u!1001 &1611774749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45383,6 +45391,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2c068a760fb739a41ad3e82f642ab9f6, type: 2}
   - {fileID: 11400000, guid: e320c07b5cc9f174e94a2d7df64e747d, type: 2}
   - {fileID: 11400000, guid: 00ce34a9be4445e40a738bfa2372b0fd, type: 2}
+  maxNumberStackableItems: 10
 --- !u!1 &1643952074
 GameObject:
   m_ObjectHideFlags: 0
@@ -57020,6 +57029,7 @@ MonoBehaviour:
   randomLootItems:
   - {fileID: 11400000, guid: e320c07b5cc9f174e94a2d7df64e747d, type: 2}
   - {fileID: 11400000, guid: 2c068a760fb739a41ad3e82f642ab9f6, type: 2}
+  maxNumberStackableItems: 10
 --- !u!1 &1799214118
 GameObject:
   m_ObjectHideFlags: 0
@@ -57556,6 +57566,7 @@ MonoBehaviour:
   randomLootItems:
   - {fileID: 11400000, guid: 00ce34a9be4445e40a738bfa2372b0fd, type: 2}
   - {fileID: 11400000, guid: e320c07b5cc9f174e94a2d7df64e747d, type: 2}
+  maxNumberStackableItems: 5
 --- !u!1 &1977464184
 GameObject:
   m_ObjectHideFlags: 0
@@ -63659,6 +63670,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 208885835605241059, guid: b9e84a1afcdb46b45b1f17e0d30ad62d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208885835605241059, guid: b9e84a1afcdb46b45b1f17e0d30ad62d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208885835605241059, guid: b9e84a1afcdb46b45b1f17e0d30ad62d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 208885835973067820, guid: b9e84a1afcdb46b45b1f17e0d30ad62d, type: 3}
       propertyPath: m_Name
       value: InventoryTabArea
@@ -63753,10 +63776,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 208885837436798470, guid: b9e84a1afcdb46b45b1f17e0d30ad62d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 208885837436798470, guid: b9e84a1afcdb46b45b1f17e0d30ad62d, type: 3}
-      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 208885837436957823, guid: b9e84a1afcdb46b45b1f17e0d30ad62d, type: 3}
@@ -65068,6 +65087,7 @@ MonoBehaviour:
   randomLootItems:
   - {fileID: 11400000, guid: 2c068a760fb739a41ad3e82f642ab9f6, type: 2}
   - {fileID: 11400000, guid: 00ce34a9be4445e40a738bfa2372b0fd, type: 2}
+  maxNumberStackableItems: 5
 --- !u!1001 &7641938299933296895
 PrefabInstance:
   m_ObjectHideFlags: 0

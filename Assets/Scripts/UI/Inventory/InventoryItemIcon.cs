@@ -1,4 +1,5 @@
 ﻿using AdventureOfZoldan.Inventories;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,9 +12,12 @@ namespace AdventureOfZoldan.UI.Inventories
     [RequireComponent(typeof(Image))]
     public class InventoryItemIcon : MonoBehaviour
     {
+        [SerializeField] private GameObject textContainer = null;
+        [SerializeField] private TextMeshProUGUI itemNumber = null;
+
         // PUBLIC
 
-        public void SetItem(InventoryItem item)
+        public void SetItem(InventoryItem item, int number)
         {
             var iconImage = GetComponent<Image>();
             if (item == null)
@@ -24,6 +28,20 @@ namespace AdventureOfZoldan.UI.Inventories
             {
                 iconImage.enabled = true;
                 iconImage.sprite = item.GetIcon();
+            }
+
+            if (itemNumber)
+            {
+                if (number <= 1)
+                {
+                    textContainer.SetActive(false);
+
+                }
+                else
+                {
+                    textContainer.SetActive(true);
+                    itemNumber.text = number.ToString();
+                }
             }
         }
     }

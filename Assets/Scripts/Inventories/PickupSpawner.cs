@@ -7,7 +7,8 @@ namespace AdventureOfZoldan.Inventories
     {
         // CONFIG DATA
         [SerializeField] InventoryItem item = null;
-
+        [SerializeField] int number = 1;
+         
         // LIFECYCLE METHODS
         private void Awake()
         {
@@ -38,7 +39,7 @@ namespace AdventureOfZoldan.Inventories
 
         private void SpawnPickup()
         {
-            var spawnedPickup = item.SpawnPickup(transform.position);
+            var spawnedPickup = item.SpawnPickup(transform.position, number);
             spawnedPickup.transform.SetParent(transform);
         }
 

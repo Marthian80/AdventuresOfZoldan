@@ -37,8 +37,7 @@ namespace AdventureOfZoldan.UI.Inventories.Dragging
 
         // PRIVATE
         void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
-        {
-            Debug.Log("Dragging started");
+        {            
             startPosition = transform.position;
             originalParent = transform.parent;
             // Else won't get the drop event.

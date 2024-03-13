@@ -8,6 +8,7 @@ namespace AdventureOfZoldan.Inventories
     {
         // CONFIG DATA
         [SerializeField] private List<InventoryItem> randomLootItems = new List<InventoryItem>();
+        [SerializeField] private int maxNumberStackableItems = 10;
 
         private Pickup spawnedPickup = null;
 
@@ -32,10 +33,10 @@ namespace AdventureOfZoldan.Inventories
 
         private void SpawnPickup()
         {
-            var randomNumber = Random.Range(0, randomLootItems.Count);           
+            var randomNumber = Random.Range(0, randomLootItems.Count);
+            var itemCount = randomLootItems[randomNumber].IsStackable() ? Random.Range(1, maxNumberStackableItems) : 1;
             
-            spawnedPickup = randomLootItems[randomNumber].SpawnPickup(transform.position);
-            Debug.Log($"Going to drop {spawnedPickup.GetItem().GetItemID()}");
+            spawnedPickup = randomLootItems[randomNumber].SpawnPickup(transform.position, itemCount);            
             spawnedPickup.transform.SetParent(transform);            
         }
 
