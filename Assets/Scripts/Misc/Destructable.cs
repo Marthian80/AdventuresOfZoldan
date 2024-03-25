@@ -1,3 +1,4 @@
+using AdventureOfZoldan.Core;
 using AdventureOfZoldan.Core.Saving;
 using AdventureOfZoldan.Inventories;
 using AdventureOfZoldan.Weapons;
@@ -51,8 +52,9 @@ namespace AdventureOfZoldan.Misc
         private IEnumerator DestroyAnimationRoutine()
         {
             theAnimator.SetTrigger(EXPLODE_HASH);
+            AudioPlayer.Instance.PlayExplosionOneClip(transform.position);
             yield return new WaitForSeconds(0.75f);
-            DisableSpriteWhenDestroyed(true);
+            DisableSpriteWhenDestroyed(true);            
         }
 
         public object CaptureState()

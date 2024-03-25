@@ -502,6 +502,11 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: d24d93a5cdd3ad84c9521c201c3fcd1d, type: 2}
+--- !u!1 &84700399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3972115540549821917, guid: 0da5a500ad1899344b2bbbdf410292a9, type: 3}
+  m_PrefabInstance: {fileID: 237829482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &88877138
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +973,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3972115540549821918, guid: 0da5a500ad1899344b2bbbdf410292a9, type: 3}
   m_PrefabInstance: {fileID: 237829482}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &237829507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84700399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52b0ad6632cceb48a0ac49df33b5f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropOffsetX: 0.6
 --- !u!1 &279311057 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8395474811457964649, guid: 9fd8d4514b8e03649a5af8ca3e716d34, type: 3}
@@ -36315,7 +36333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.38902378, y: 5.805159, z: -9.826152}
+  m_LocalPosition: {x: -0.38971996, y: 5.805159, z: -9.826152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42683,6 +42701,7 @@ GameObject:
   - component: {fileID: 886203875}
   - component: {fileID: 886203874}
   - component: {fileID: 886203879}
+  - component: {fileID: 886203880}
   m_Layer: 5
   m_Name: UI_Canvas
   m_TagString: Untagged
@@ -42806,6 +42825,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleKey: 105
   uiContainer: {fileID: 1582348947}
+--- !u!114 &886203880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886203873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff72393d19f3c745a2276da5e39873e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &902155242
 GameObject:
   m_ObjectHideFlags: 0
@@ -64872,21 +64903,49 @@ PrefabInstance:
       value: AudioPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
+      propertyPath: pickupClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ec0b703b6ec701b41bd253d0d71d81ee, type: 3}
+    - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
+      propertyPath: slimeDeathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c99f6b1a2471f74ab48eab631b02590, type: 3}
+    - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
       propertyPath: shootRaygunClip
       value: 
       objectReference: {fileID: 8300000, guid: 96ca9e1afcf0031459e6f9b10b996eb3, type: 3}
+    - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
+      propertyPath: explosionOneClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d21ff3c96781db849894f3fe0ca25d61, type: 3}
+    - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
+      propertyPath: pickupClipVolume
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
+      propertyPath: slimeDeathVolume
+      value: 0.767
+      objectReference: {fileID: 0}
     - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
       propertyPath: shootRaygunVolume
       value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
       propertyPath: crowbarSwingVolume
-      value: 0.6
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
+      propertyPath: explosionOneVolume
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
       propertyPath: shootLaserPistolClip
       value: 
       objectReference: {fileID: 8300000, guid: 18ec0aee791bb7a49b391fb2ac003fff, type: 3}
+    - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
+      propertyPath: handWeaponImpactVolume
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
       propertyPath: shootLaserPistolVolume
       value: 0.77
@@ -64903,6 +64962,18 @@ PrefabInstance:
       propertyPath: crowbarSwingClip.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: c1610c7c8fdb15f478c1ddbff069b3b8, type: 3}
+    - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
+      propertyPath: handWeaponImpactClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 844a9db5e358e2340979361842ec8b92, type: 3}
+    - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
+      propertyPath: handWeaponImpactClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d6c2d7a6c0a6a24482186fc52e39595, type: 3}
+    - target: {fileID: 6757626578483743586, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
+      propertyPath: handWeaponImpactClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 522cef307e686d74ca4784dd86360e6d, type: 3}
     - target: {fileID: 7167911343919987093, guid: 6bdaf780c8b632741bf58cff9f0cff46, type: 3}
       propertyPath: m_RootOrder
       value: 11

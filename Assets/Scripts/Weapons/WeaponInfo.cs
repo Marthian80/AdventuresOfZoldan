@@ -8,6 +8,6 @@ namespace AdventureOfZoldan.Weapons
         public GameObject weaponPrefab;
         public float weaponCoolDown;
         public int weaponDamage;
-        public float weaponRange;
+        public float weaponRange;        
     }
 }

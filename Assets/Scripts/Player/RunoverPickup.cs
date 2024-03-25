@@ -1,3 +1,4 @@
+using AdventureOfZoldan.Core;
 using AdventureOfZoldan.Inventories;
 using UnityEngine;
 
@@ -14,13 +15,13 @@ namespace AdventureOfZoldan.Player
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
-        {
-            Debug.Log("Player Trigger");
+        {            
             if (collision.GetComponent<PlayerController>() != null)
             {
                 if (pickup.CanBePickedUp())
                 {
                     pickup.PickupItem();
+                    AudioPlayer.Instance.PlayPickupClip();
                 }
             }
         }

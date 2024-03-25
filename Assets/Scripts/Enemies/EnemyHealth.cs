@@ -1,3 +1,4 @@
+using AdventureOfZoldan.Core;
 using AdventureOfZoldan.Core.Saving;
 using AdventureOfZoldan.Inventories;
 using AdventureOfZoldan.Misc;
@@ -74,6 +75,7 @@ namespace AdventureOfZoldan.Enemies
                 GetComponent<EnemyPathfinding>().StopMoving();
                 GetComponent<CapsuleCollider2D>().enabled = false;
                 GetComponent<LootSpawner>()?.DropLoot();
+                AudioPlayer.Instance.PlaySlimeDeathEffect(transform.position);
             }
         }
 
