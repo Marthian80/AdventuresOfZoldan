@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdventureOfZoldan.UI.Inventories;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ namespace AdventureOfZoldan.Inventories
         [Tooltip("The prefab that should be spawned when this item is dropped.")]
         [SerializeField] Pickup pickup = null;
         [Tooltip("If true, multiple items of this type can be stacked in the same inventory slot.")]
-        [SerializeField] bool stackable = false;
+        [SerializeField] bool stackable = false;       
 
         // STATE
         private static Dictionary<string, InventoryItem> itemLookupCache;

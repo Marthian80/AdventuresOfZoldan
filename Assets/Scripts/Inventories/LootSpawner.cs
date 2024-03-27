@@ -15,8 +15,7 @@ namespace AdventureOfZoldan.Inventories
         public void DropLoot()
         {
             if (spawnedPickup == null)
-            {
-                Debug.Log("Attempt to dtop loot");
+            {                
                 SpawnPickup();
             }            
         }

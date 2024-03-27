@@ -1,6 +1,7 @@
 using AdventureOfZoldan.Misc;
 using AdventureOfZoldan.Player;
 using AdventureOfZoldan.SceneManagement;
+using AdventureOfZoldan.UI.Inventories;
 using AdventureOfZoldan.Weapons;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,31 +10,38 @@ namespace AdventureOfZoldan.Inventories
 {
     public class ActiveInventory : MonoBehaviour
     {
-        private int activeSlotIndexNum = 0;
+        [SerializeField] private Sprite selectedHighlightImage;
+        [SerializeField] private Sprite inventoryBoxImage;
 
+        private int activeSlotIndexNum = 0;
         private PlayerControls playerControls;
         private Flash flash;
         private PlayerHealth playerHealth;
-        private GameObject newWeapon;
+        private GameObject newWeapon;        
 
         private void Awake()
         {
             playerControls = new PlayerControls();
             var player = GameObject.FindWithTag("Player");
             flash = player.GetComponent<Flash>();
-            playerHealth = player.GetComponent<PlayerHealth>();
+            playerHealth = player.GetComponent<PlayerHealth>();            
         }
 
         private void Start()
         {
             playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
-            playerHealth.onPlayerDead += FadeoutWeapon;
-            ToggleActiveSlot(1);
+            playerHealth.onPlayerDead += FadeoutWeapon;            
 
             SceneManager.Instance.onGameRestarted += RestartPlayer;            
         }
 
-        private void RestartPlayer()
+        //Toggle active highlight when weapon is equiped
+        public void ItemEquiped()
+        {
+            ToggleActiveHighlight(activeSlotIndexNum);
+        }
+
+        private void RestartPlayer()    
         {
             foreach (var spriteRenderChild in newWeapon.GetComponentsInChildren<SpriteRenderer>())
             {
@@ -67,14 +75,11 @@ namespace AdventureOfZoldan.Inventories
             activeSlotIndexNum = indexNumber;
 
             foreach (Transform activeInventorySlot in this.transform)
-            {
-                activeInventorySlot.GetChild(0).gameObject.SetActive(false);
-                activeInventorySlot.gameObject.GetComponent<Image>().enabled = true;
+            {                
+                activeInventorySlot.gameObject.GetComponent<Image>().sprite = inventoryBoxImage;
             }
-
-            this.transform.GetChild(indexNumber).GetChild(0).gameObject.SetActive(true);
-            this.transform.GetChild(indexNumber).gameObject.GetComponent<Image>().enabled = false;
-
+            
+            this.transform.GetChild(indexNumber).gameObject.GetComponent<Image>().sprite = selectedHighlightImage;
             ChangeActiveWeapon();
         }
 
@@ -86,9 +91,15 @@ namespace AdventureOfZoldan.Inventories
             }
 
             Transform childTransform = transform.GetChild(activeSlotIndexNum);
-            InventorySlot inventorySlot = childTransform.GetComponent<InventorySlot>();
-            WeaponInfo weaponInfo = inventorySlot.GetWeaponInfo();
+            EquipmentSlotUI equipmentSlot = childTransform.GetComponent<EquipmentSlotUI>();
+            EquipableItem equipment = equipmentSlot.GetItem() as EquipableItem;
 
+            if (equipment == null)
+            {
+                ActiveWeapon.Instance.NoWeaponSelected();
+                return;
+            }
+            WeaponInfo weaponInfo = equipment.GetWeaponInfo();
 
             if (weaponInfo == null)
             {

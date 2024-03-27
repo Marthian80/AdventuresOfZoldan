@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3548b8bf744e3a4ab7596404b1925a6, type: 3}
   m_Name: Titanium Bar
   m_EditorClassIdentifier: 
-  itemID: 075ead15-91b4-4d4d-8d08-2d6051e01371
+  itemID: 32993875-8714-4869-94ff-95d5753d87a4
   displayName: Titanium Bar
-  description: Bar of Titanium, used for space ships hull
+  description: One bar of titanium, which is used for space craft hulls
   icon: {fileID: 21300000, guid: bebca657f4435d945a33dde85b1b3eb6, type: 3}
   pickup: {fileID: 869898612997484683, guid: 8216e888b26642941983c230e3cc69d1, type: 3}
   stackable: 1

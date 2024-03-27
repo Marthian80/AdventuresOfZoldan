@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32dc31dfa20edd4ab4c4284185efb10, type: 3}
+  m_Name: Ray Gun
+  m_EditorClassIdentifier: 
+  itemID: e5e8dede-4b8b-4d92-875f-6b27f0a029d4
+  displayName: Ray Gun
+  description: Two handed gun that shoots powerful rays
+  icon: {fileID: 21300000, guid: 1aeb52a702f6386418432637291b5d7b, type: 3}
+  pickup: {fileID: 869898612997484683, guid: 8216e888b26642941983c230e3cc69d1, type: 3}
+  stackable: 0
+  allowedEquipLocation: 6
+  weaponInfo: {fileID: 11400000, guid: b4530d80aacb6c04eb77582f3b1c4847, type: 2}

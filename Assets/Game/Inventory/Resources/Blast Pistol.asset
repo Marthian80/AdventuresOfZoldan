@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32dc31dfa20edd4ab4c4284185efb10, type: 3}
+  m_Name: Blast Pistol
+  m_EditorClassIdentifier: 
+  itemID: 2c9c5eb5-24dd-4bb6-b362-5721ad2cb642
+  displayName: Blast Pistol
+  description: Simple one hand gun that shoots laser blasts.
+  icon: {fileID: 21300000, guid: 00ad039e84f2ef54a80e1566beea0aec, type: 3}
+  pickup: {fileID: 869898612997484683, guid: 8216e888b26642941983c230e3cc69d1, type: 3}
+  stackable: 0
+  allowedEquipLocation: 6
+  weaponInfo: {fileID: 11400000, guid: 4da2f38a4d26d4042ae1ac8a6d9d36ac, type: 2}

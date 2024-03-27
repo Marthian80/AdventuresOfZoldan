@@ -174,7 +174,7 @@ namespace AdventureOfZoldan.UI.Inventories.Dragging
             var destinationMaxAcceptable = destination.MaxAcceptable(removedItem);
 
             if (destinationMaxAcceptable < removedNumber)
-            {
+            {                
                 takeBackNumber = removedNumber - destinationMaxAcceptable;
 
                 var sourceTakeBackAcceptable = removeSource.MaxAcceptable(removedItem);
