@@ -186,9 +186,10 @@ GameObject:
   - component: {fileID: 3972115540549821911}
   - component: {fileID: 3972115540549821908}
   - component: {fileID: 237829484}
+  - component: {fileID: 237829507}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -400,6 +401,7 @@ MonoBehaviour:
   maxHealth: 3
   knockbackThrustAmount: 10
   damageRecoveryTime: 1
+  deathDelay: 1.25
 --- !u!114 &237829484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,3 +415,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySize: 20
+--- !u!114 &237829507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3972115540549821917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52b0ad6632cceb48a0ac49df33b5f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropOffsetX: 0.6

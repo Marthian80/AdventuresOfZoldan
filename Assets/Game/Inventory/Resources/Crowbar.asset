@@ -18,5 +18,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 41b477d70bf02ca46a8842525406ffd8, type: 3}
   pickup: {fileID: 869898612997484683, guid: 8216e888b26642941983c230e3cc69d1, type: 3}
   stackable: 0
-  allowedEquipLocation: 6
+  allowedEquipLocation: 1
   weaponInfo: {fileID: 11400000, guid: ae2276465a1cb7c4e82fc346bbe800c6, type: 2}
